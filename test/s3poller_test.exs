@@ -1,8 +1,9 @@
 defmodule S3pollerTest do
   use ExUnit.Case
-  doctest S3poller
 
-  test "greets the world" do
-    assert S3poller.hello() == :world
+  test "Build initial list" do
+    response = S3poller.build_initial_list
+    assert [ [key: _key, last_modified: _last_modified ], _ ] = response
   end
+  
 end

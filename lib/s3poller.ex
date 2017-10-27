@@ -1,18 +1,31 @@
 defmodule S3poller do
-  @moduledoc """
-  Documentation for S3poller.
-  """
 
-  @doc """
-  Hello world.
+  alias ExAws.S3
 
-  ## Examples
+  def retrieve_objects() do
+    { :ok, %{ body: %{ contents: contents } } } =
+      S3.list_objects("clockwork-data-science")
+      |> ExAws.request
 
-      iex> S3poller.hello
-      :world
-
-  """
-  def hello do
-    :world
+      contents
   end
+
+  def build_initial_list() do
+    response = retrieve_objects()
+
+    initialList = Enum.map( response, fn( %{ key: key, last_modified: last_modified } ) ->
+      [key: key, last_modified: last_modified]
+    end )
+
+    initialList
+  end
+
+  def poll_for_changes do
+    response = retrieve_objects()
+
+    response
+  end
+
+
+
 end
