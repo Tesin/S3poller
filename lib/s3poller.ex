@@ -39,11 +39,11 @@ defmodule S3poller do
     s3_map    = MapSet.new( current_s3_keys )
     agent_map = MapSet.new( current_agent_keys )
 
-    Agent.update( S3_placeholder, fn() ->
+    Agent.update( S3_placeholder, fn( _state ) ->
       current_s3_keys
     end )
 
-    Agent.update( Current_state, fn() ->
+    Agent.update( Current_state, fn( _state ) ->
       current_s3_keys
     end )
 
