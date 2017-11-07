@@ -14,6 +14,7 @@ can be leveraged for greater reliability. This is a stop-gap measure for a proje
 - AWS_SECRET_ACCESS_KEY
 - S3_BUCKET
 - S3_POLLER_REGION
+- S3_POLLER_INTERVAL  (( Expects milliseconds ))
 
 ## Dependencies
 - System package: erlang-xmerl

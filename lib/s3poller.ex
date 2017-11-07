@@ -54,8 +54,10 @@ defmodule S3poller do
   def poll do
     diff = check_for_changes()
 
+    { interval, "" } = Integer.parse( System.get_env( "S3_POLLER_INTERVAL" ) )
+
     IO.inspect diff
-    :timer.sleep( 10000 )
+    :timer.sleep( interval )
 
     poll()
   end
