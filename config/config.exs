@@ -8,7 +8,7 @@ use Mix.Config
 # if you want to provide default values for your application for
 # 3rd-party users, it should be done in your "mix.exs" file.
 config :ex_aws,
-  region: "us-east-1"
+  region: System.get_env( "S3_POLLER_REGION" )
 # You can configure your application as:
 #
 #     config :s3poller, key: :value

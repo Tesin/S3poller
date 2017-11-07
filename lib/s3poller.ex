@@ -23,7 +23,7 @@ defmodule S3poller do
 
   def retrieve_objects() do
     { :ok, %{ body: %{ contents: contents } } } =
-      S3.list_objects("clockwork-data-science")
+      S3.list_objects( System.get_env( "S3_BUCKET" ) )
       |> ExAws.request
 
       contents
