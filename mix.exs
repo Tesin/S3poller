@@ -22,10 +22,10 @@ defmodule S3poller.Mixfile do
   defp deps do
     [
       {:ex_aws, "~> 1.0"},
-      #{:ex_aws_s3, "~> 2.0"},  #Not in hex.pm anymore; Manual clone into deps.
       {:poison, "~> 3.0"},
       {:hackney, "~> 1.9"},
-      {:sweet_xml, "~> 0.6"}
+      {:sweet_xml, "~> 0.6"},
+      {:mix_docker, "~> 0.5.0"}
     ]
   end
 end

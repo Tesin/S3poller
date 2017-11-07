@@ -9,6 +9,8 @@ use Mix.Config
 # 3rd-party users, it should be done in your "mix.exs" file.
 config :ex_aws,
   region: System.get_env( "S3_POLLER_REGION" )
+
+config :mix_docker, image: "s3poller"
 # You can configure your application as:
 #
 #     config :s3poller, key: :value
